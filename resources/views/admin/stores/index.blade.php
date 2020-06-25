@@ -1,24 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<table class='table table-stried'>
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Loja</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($stores as $store)
+    <a href="{{route('admin.stores.create')}}" class="btn btn-sm btn-success">Criar Loja</a>
+    <table class='table table-stried'>
+        <thead>
             <tr>
-                <td>{{$store->id}}</td>
-                <td>{{$store->name}}</td>
-                <td></td>
+                <th>#</th>
+                <th>Loja</th>
+                <th>Ações</th>
             </tr>
-        @endforeach
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach($stores as $store)
+                <tr>
+                    <td>{{$store->id}}</td>
+                    <td>{{$store->name}}</td>
+                    <td>
+                        <a href="{{route('admin.stores.edit', ['store' => $store->id])}}" class="btn btn-sm btn-primary">EDITAR</a>
+                        <a href="{{route('admin.stores.destroy', ['store' => $store->id])}}" class="btn btn-sm btn-danger">REMOVER</a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
-{{$stores->links()}}
+    {{$stores->links()}}
 @endSection
