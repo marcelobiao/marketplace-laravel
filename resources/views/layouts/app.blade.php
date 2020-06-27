@@ -30,6 +30,9 @@
             <div class="my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="#">{{auth()->user()->name}}</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" onClick="event.preventDefault(); document.querySelector('form.logout').submit();">Sair</a>
                         <form action="{{route('logout')}}" class="logout" method="POST" style="display:none;">
                             @csrf
