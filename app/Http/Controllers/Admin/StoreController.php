@@ -20,8 +20,7 @@ class StoreController extends Controller
 
     public function store(Request $req){
         $data = $req->all();
-
-        $user= \App\User::find($data['user']);
+        $user = auth()->user();
 
         $store = $user->store()->create($data);
 
